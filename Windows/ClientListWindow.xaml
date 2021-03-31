@@ -1,0 +1,157 @@
+﻿<Window x:Class="AutoServicePolomka.Windows.ClientListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoServicePolomka.Windows"
+        mc:Ignorable="d" Icon="/Resources/service_logo.ico"
+        Title="Автосервис поломка  -  Список клиентов"
+        Height="600" Width="800" WindowStartupLocation="CenterScreen"
+        MinHeight="600" MinWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <Image Source="/Resources/service_logo.png"
+                   HorizontalAlignment="Left" Margin="10,5"/>
+                <TextBlock Text="Автосервис ''Поломка''" Margin="5" Width="100"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           TextAlignment="Center" TextWrapping="Wrap"
+                           FontFamily="Tw Cen MT" FontSize="18"/>
+            </StackPanel>
+
+            <Button Grid.Column="3" Margin="30,20" Background="#ff9c1a"
+                    Click="Exit_Click">
+                <TextBlock Text="Выход" Margin="5" Width="100"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           TextAlignment="Center" TextWrapping="Wrap"
+                           FontFamily="Tw Cen MT" FontSize="14"/>
+            </Button>
+        </Grid>
+
+        <TextBlock Grid.Row="1" Text="Список клиентов" Margin="20,5"
+                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                   TextAlignment="Left" TextWrapping="Wrap"
+                   FontFamily="Tw Cen MT" FontSize="20"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal"
+                    HorizontalAlignment="Right" Margin="20,5">
+            <ComboBox Name="CBElementsCount" Margin="5"
+                     VerticalAlignment="Center" Height="30"
+                     FontFamily="Tw Cen MT" FontSize="14"
+                     SelectionChanged="CB_SelectionChanged"/>
+            <TextBlock Text=" из " Margin="5" Visibility="Collapsed"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="Wrap"
+                       FontFamily="Tw Cen MT" FontSize="14"/>
+            <TextBlock Name="TBElementsCount" Margin="5"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="Wrap"
+                       FontFamily="Tw Cen MT" FontSize="14"/>
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="ФИО: " Margin="5"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="Wrap"
+                       FontFamily="Tw Cen MT" FontSize="14"/>
+
+            <TextBox Name="TBoxFIO" Grid.Column="1" Margin="5"
+                     VerticalAlignment="Center" Height="30"
+                     TextAlignment="Left" TextWrapping="Wrap"
+                     FontFamily="Tw Cen MT" FontSize="14"
+                     TextChanged="TBoxSearch_TextChanged"/>
+
+            <TextBlock Grid.Column="2" Text="E-mail: " Margin="5"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="Wrap"
+                       FontFamily="Tw Cen MT" FontSize="14"/>
+
+            <TextBox Name="TBoxEmail" Grid.Column="3" Margin="5"
+                     VerticalAlignment="Center" Height="30"
+                     TextAlignment="Left" TextWrapping="Wrap"
+                     FontFamily="Tw Cen MT" FontSize="14"
+                     TextChanged="TBoxSearch_TextChanged"/>
+
+            <TextBlock Grid.Column="4" Text="Телефон: " Margin="5"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="Wrap"
+                       FontFamily="Tw Cen MT" FontSize="14"/>
+
+            <TextBox Name="TBoxPhone" Grid.Column="5" Margin="5"
+                     VerticalAlignment="Center" Height="30"
+                     TextAlignment="Left" TextWrapping="Wrap"
+                     FontFamily="Tw Cen MT" FontSize="14"
+                     TextChanged="TBoxSearch_TextChanged"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="Пол: " Margin="5" Width="100"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="Wrap"
+                       FontFamily="Tw Cen MT" FontSize="14"/>
+
+            <ComboBox Name="CBGender" Grid.Column="1" Margin="5"
+                     VerticalAlignment="Center" Height="30"
+                     FontFamily="Tw Cen MT" FontSize="14"
+                     SelectionChanged="CB_SelectionChanged"/>
+            
+            <TextBlock Grid.Column="2" Text="Сортировка: " Margin="5" Width="100"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="Wrap"
+                       FontFamily="Tw Cen MT" FontSize="14"/>
+
+            <ComboBox Name="CBSort" Grid.Column="3" Margin="5"
+                     VerticalAlignment="Center" Height="30"
+                     FontFamily="Tw Cen MT" FontSize="14"
+                     SelectionChanged="CB_SelectionChanged"/>
+        </Grid>
+
+        <ListView Name="LVClient" Grid.Row="4" SelectionChanged="LVClient_SelectionChanged">
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Пол" DisplayMemberBinding="{Binding Gender}"/>
+                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthday, StringFormat='{}{0:dd.MM.yyyy}'}"/>
+                    <GridViewColumn Header="Дата регистрации" DisplayMemberBinding="{Binding RegistrationDate, StringFormat='{}{0:dd.MM.yyyy}'}"/>
+                    <GridViewColumn Header="Дата последнего посещения" DisplayMemberBinding="{Binding LastVisitTime, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}"/>
+                    <GridViewColumn Header="Количество посещений" DisplayMemberBinding="{Binding VisitQTY}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
